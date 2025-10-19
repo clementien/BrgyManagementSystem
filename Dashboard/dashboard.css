@@ -1,0 +1,142 @@
+* {
+    font-family: Poppins;
+    margin: 0;
+}
+
+html {
+    background-color: #EEEEEE;
+    scroll-behavior: smooth;
+}
+
+.dashboard-container {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    background-color: #21205D;
+    color: white;
+    width: 300px;
+    min-height: 100vh;  
+    text-align: center;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+
+.sidebar h1 {
+    padding-bottom: 5px;
+    font-size: 1em;
+}
+
+.sidebar ul {
+    list-style: none;
+    text-align: start;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.sidebar ul li {
+    font-weight: 500;
+}
+
+.sidebar li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px 30px;
+    margin: 0px -20px;
+    border-radius: 0;
+    transition: 0.3s;
+}
+
+.sidebar li a:hover {
+    background-color: #2C2B85;
+    color: #F5FD12;
+}
+
+.barangay-logo {
+    width: 40%;
+    padding-bottom: 20px;
+}
+
+.right-content {
+    background-color: #EEEEEE;
+    margin-left: 340px;  
+    flex: 1;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #EEEEEE;
+}
+
+.left-header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.leftsub-header {
+    color: #666;
+    font-size: 14px;
+}
+
+.right-header {
+    text-align: right;
+}
+
+.time-and-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.logout-logo {
+    width: 40px;
+    cursor: pointer;
+}
+
+.right-sub {
+    font-size: 12px;
+    color: #666;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.stat-card {
+    background-color: #21205D;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-card::before{
+    width: 20px;
+    height: 20px;
+    background: black;
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.chart-widget {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

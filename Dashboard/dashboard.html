@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body>
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="images/barangay-logo.png" alt="barangay-logo" class="barangay-logo">
+        <h1>Barangay Management System</h1>
+        <nav class="menu">
+            <ul class="menu-items">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="officials.html">Officials</a></li>
+                <li><a href="residents.html">Residents Information</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="certificate.html">Barangay Certificate</a></li>
+                <li><a href="indigency.html">Certificate of Indigency</a></li>
+                <li><a href="clearance.html">Barangay Clearance</a></li>
+                <li><a href="announcement.html">Announcement</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="right-content">
+        <header class="header">
+            <div class="left-header">
+                <h1>Dashboard Overview</h1>
+                <p class="leftsub-header">Welcome back, Admin!</p>
+            </div>
+            <div class="right-header">
+                <div class="time-and-logo">
+                    <p>12:00:00 AM</p>
+                    <img src="images/logout.png" alt="logout" class="logout-logo">
+                </div>
+                <p class="right-sub">Home/Dashboard</p>
+            </div>
+        </header>
+
+    <div class="stats-container">
+        <div class="stat-card">Total Residence: <span id="total-residence"></span></div>
+        <div class="stat-card">Male: <span id="male-count"></span></div>
+        <div class="stat-card">Female: <span id="female-count"></span></div>
+        <div class="stat-card">Seniors: <span id="seniors-count"></span></div>
+        <div class="stat-card">Total Voters: <span id="voters-count"></span></div>
+    </div>
+    
+        <div class="charts-container">
+            <div class="chart-widget">Chart</div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+function fetchData() {
+  fetch('../../get_residents.php')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('total-residence').innerText = data.Total;
+      document.getElementById('male-count').innerText = data.Male;
+      document.getElementById('female-count').innerText = data.Female;
+      document.getElementById('seniors-count').innerText = data.Seniors;
+      document.getElementById('voters-count').innerText = data.Voters;
+    });
+}
+
+fetchData(); 
+setInterval(fetchData, 10000); // auto-refresh every 10 seconds
+</script>
+
+</html>
